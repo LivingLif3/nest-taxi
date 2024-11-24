@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  course-taxi-redis:
+    image: redis
+    container_name: course-taxi-redis
+    ports:
+      - "6379:6379"
+  course-taxi-db:
+    image: postgres:14
+    container_name: course-taxi-db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=course-taxi
+    ports:
+      - "5432:5432"
